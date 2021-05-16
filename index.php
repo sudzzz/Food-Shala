@@ -35,13 +35,16 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer">Contact Us</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="home/customers/customer.php">Order Food</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" 
               id="navbarDropdown" role="button" data-toggle="dropdown">Login</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="restaurants/login.php">Restaurant</a>
+                <a class="dropdown-item" href="home/restaurants/login.php">Restaurant</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="customers/login.php">Customer</a>
+                <a class="dropdown-item" href="home/customers/login.php">Customer</a>
               </div>
             </li>
             <li class="nav-item dropdown">

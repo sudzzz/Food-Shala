@@ -27,7 +27,6 @@ if(isset($_POST["submit"]))
   $email = $_POST['email'];
   $password1 = $_POST['password1'];
   $password2 = $_POST['password2'];
-  $usertype = $_POST['usertype'];
 
   $q = "SELECT * FROM `customer-register` where email = '$email' ";   //Check if email exists or not.
   $result = mysqli_query($conn,$q);
@@ -129,7 +128,7 @@ $conn->close();
         <!--Display Validation Error Here-->
 
          <div class="d-flex flex-column pb-3">
-           <img class="img-fluid mx-auto d-block" src="../../images/foodShala.jpg"  width="72" height="72">
+           <img class="img-fluid mx-auto d-block" src="../../images/foodShala.jpg"  width="90" height="90">
          </div>
             <h1 class="h3 mb-3 font-weight-normal">Register</h1>
           <input class="form-control" type="text" name="name" id="input" placeholder="Customer's Name" required autofocus>

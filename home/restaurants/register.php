@@ -10,7 +10,6 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-echo "Register For Restaurants"
 ?>
 <!DOCTYPE html>
 <html>
@@ -88,7 +87,7 @@ echo "Register For Restaurants"
         <!--Display Validation Error Here-->
 
          <div class="d-flex flex-column pb-3">
-           <img class="img-fluid mx-auto d-block" src="images/foodShala.jpg"  width="72" height="72">
+           <img class="img-fluid mx-auto d-block" src="../../images/foodShala.jpg"  width="72" height="72">
          </div>
             <h1 class="h3 mb-3 font-weight-normal">Register</h1>
           <input class="form-control" type="text" name="name" id="input" placeholder="Restraunt's Name" required autofocus>

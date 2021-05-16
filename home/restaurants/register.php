@@ -1,7 +1,14 @@
 <?php 
 SESSION_START();
 //Get Heroku ClearDB connection information
-$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$username = 'bd43d5a4d91ec2';
+$password = 'aeb4ff93';
+$database = 'heroku_bd6668f3079e644';
+$hostname = 'eu-cdbr-west-01.cleardb.com';
+
+$conn = new mysqli($hostname, $username, $password, $database) or die(mysqli_error($mysqli));
+
+/*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
@@ -10,7 +17,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-mysqli_select_db($conn,$cleardb_db);
+mysqli_select_db($conn,$cleardb_db);*/
 
 if(isset($_POST["submit"]))
 {
@@ -20,9 +27,8 @@ if(isset($_POST["submit"]))
   $email = $_POST['email'];
   $password1 = $_POST['password1'];
   $password2 = $_POST['password2'];
-  $usertype = $_POST['usertype'];
 
-  $q = "SELECT * FROM restaurant-register where email = '$email' ";   //Check if email exists or not.
+  $q = "SELECT * FROM `restaurant-register` where email = '$email' ";   //Check if email exists or not.
   $result = mysqli_query($conn,$q);
   $num = mysqli_num_rows($result);
 
@@ -37,7 +43,7 @@ if(isset($_POST["submit"]))
   }
   else
   {
-    $sql = "INSERT INTO restaurant-register(name,address,phone,email,password) VALUES('$name','$address','$phone','$email','$password1')";
+    $sql = "INSERT INTO `restaurant-register`(name,address,phone,email,password) VALUES('$name','$address','$phone','$email','$password1')";
     mysqli_query($conn,$sql);
 
     echo "<script> alert('You are registered successfully!!'); window.location = 'login.php'</script>";

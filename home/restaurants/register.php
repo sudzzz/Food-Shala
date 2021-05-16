@@ -10,6 +10,39 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+if(isset($_POST["submit"]))
+{
+  $name = $_POST['name'];
+  $address = $_POST['address'];
+  $phone = $_POST['phone'];
+  $email = $_POST['email'];
+  $password1 = $_POST['password1'];
+  $password2 = $_POST['password2'];
+  $usertype = $_POST['usertype'];
+
+  $q = "SELECT * FROM restaurant-register where email = '$email' ";   //Check if email exists or not.
+  $result = mysqli_query($conn,$q);
+  $num = mysqli_num_rows($result);
+
+  if($num==1)   // If entered email or username exists
+  {
+    echo "<script> alert('User Already exists!!'); window.location = 'register.php'</script>";
+  }
+
+  elseif ($password1 != $password2)
+  {
+    echo "<script> alert('The two passwords do not match!!'); window.location = 'register.php'</script>";
+  }
+  else
+  {
+    $sql = "INSERT INTO restaurant-register(name,address,phone,email,password) VALUES('$name','$address','$phone','$email','$password1')";
+    mysqli_query($conn,$sql);
+
+    echo "<script> alert('You are registered successfully!!'); window.location = 'login.php'</script>";
+  }
+}
+
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,7 +126,6 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
           <input class="form-control" type="text" name="name" id="input" placeholder="Restraunt's Name" required autofocus>
           <input class="form-control" type="text" name="address" placeholder="Address" required>
           <input class="form-control" type="text" name="phone" placeholder="Phone No." required>
-          <input class="form-control" type="text" name="username" placeholder="Username" required>
           <input class="form-control" type="email" name="email" placeholder="Email address" required>
           <input class="form-control" type="password" name="password1" placeholder="Password" required>
           <input class="form-control" type="password" name="password2" placeholder="Confirm Password" required>

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Infi-Care</title>
+  <title>Food-Shala</title>
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,7 +23,7 @@
   <section id="title">
       <!-- Nav Bar -->
       <nav class="navbar bg-dark navbar-expand-lg fixed-top navbar-dark">
-        <a class="navbar-brand" href="">Infi-Care</a>
+        <a class="navbar-brand" href="">Food-Shala</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,92 +35,60 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer">Contact Us</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" 
+              id="navbarDropdown" role="button" data-toggle="dropdown">Login</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="restaurants/login.php">Restaurant</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="customers/login.php">Customer</a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a href="register.php" class="btn btn-info" role="button">Register</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle btn btn-info" href="#" 
+              id="navbarDropdown" role="button" data-toggle="dropdown">Register</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item btn btn-info" href="home/restaurants/register.php" role="button">Restaurant</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item btn btn-info" href="home/customers/register.php" role="button">Customer</a>
+              </div>
             </li>
           </ul>
         </div>
       </nav>
-      <!-- Title -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-        <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-      </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-lg-6">
-                  <h1 class="big-heading">Don't Throw! Reuse-Recycle-Recirculate.</h1>
-              </div>
-              <div class="col-lg-6">
-                <img class="title-image" src="images/recycle.jfif" >
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-6">
-                <h1 class="big-heading">Let's not waste unused Medicine.</h1>
-              </div>
-              <div class="col-lg-6">
-                <img class="title-image" src="images/title.jfif" >
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-6">
-                <h1 class="big-heading">Together we can be the change.</h1>
-              </div>
-              <div class="col-lg-6">
-                <img class="title-image" src="images/goal.jfif" >
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
   </section>
-<!-- START THE FEATURETTES -->
+  <!-- START THE FEATURETTES -->
 
       <div class="container">
-        <hr class="featurette-divider">
-        <div class="container">
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">Our Vision : <span class="text-muted">And the problem it solves.</span></h2>
-              <p class="lead">Wastage of medicines is a global issue. In country like India with such a huge poulation, every year medicines worth billions of dollars gets wasted. Our Vision is to stop this wastage and help our country economically. We plan so by practising three basic things : <li>Reuse : Reusing the medicines which is not yet expired.</li> <li>Recycle : Recycling the medicines which is expired or about to expire.</li> <li>Recirculating : Recirculating the recycled medicines. back to the market</li></p>
-            </div>
-            <div class="col-md-5">
-              <img class = "featurette-img img-responsie center-block" src="images/vision.jfif" alt="">
-            </div>
-          </div>
-        </div>
-
-
-        <hr class="featurette-divider">
         <div class="container" id="About">
           <div class="row featurette">
+            <div class="col-md-7">
+            <h2 class="featurette-heading"> About Food-Shala: <span class="text-muted">Place For Foodies</span></h2>
+              <p class="lead">A portal where foodies can register and order foods from their favourite restaurants. 
+                Online ordering of food and multiple options to choose from. Both Restraunts and Customers can register at this portal 
+                and connect with each other. We act as a waiter who serves your ordered food. Intrestingly, Your order can be from multiple
+                 restraunts at any given time. In times like this, where whole world is affected by Covid-19, we 
+                 deliver you your favourite dish and ensure it to be fully healthy and safe. It was created by Sudhir Daga as an assignment
+                  for Software Development Engineer(Web Development) role in Internshala.</p>
+            </div>
+            <div class="col-md-5">
+              <img class = "featurette-img1 img-responsie center-block" style="width:110%;padding-top:50px;position:absolute" src="images/foodShala.jpg" alt="">
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="featurette-divider">
+        <div class="container">
+          <div class="row featurette">
             <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">About Infi-Care : <span class="text-muted">Transforming India.</span></h2>
-              <p class="lead">Infi-Care Cares for you and the socitey. It provides customers the platform to submit the unused and expired medicines back to the pharmacies which are collection points. Depending on the medicine submitted, the customer gets points which can be redeemed on future purchases from the pharmacy. The pharmacies will update the record on Infi-Care which will keep track of expired and un-expired Medicines. The expired medicines will be sent back to company through backchain for processing to prevent pollution caused by Medi-Waste. The Medicines which is not expired and can be used will be visible to Hospitals, Nursing Homes, NGO's who can purchase these medicines from respective pharmacies at a very low price. This will also provide medicines to the sections of socitey which cannot afford it. </p>
+              <h2 class="featurette-heading">Order Food Online : <span class="text-muted">Served Hot And Fresh</span></h2>
+              <p class="lead">Serves your food under 30 minutes and give you a great experience by serving it hot and fresh. 
+                Various Restraunts and amazing options to choose from. We gurantee food to be healthy and safe so that you and your 
+                taste-buds can enjoy and get the best even in time of covid-19. Feel free to register to our portal and join our family.</p>
             </div>
             <div class="col-md-5 order-md-1">
-              <img class = "featurette-img img-responsie center-block" src="images/transform.jfif" alt="">
+              <img class = "featurette-img img-responsie center-block" style="padding-top:40px;" src="images/order.png" alt="">
             </div>
           </div>
         </div>
@@ -130,11 +98,13 @@
         <div class="container">
           <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading">Join The Campaign : <span class="text-muted">Together we can bring the change.</span></h2>
-              <p class="lead">Be the part of Infi-Care family. Your contribution towards socitey and nation is valuable. Albert Einstien said "Only a life lived for others is a live worthwhile". Let's take a pledge, not to throw or waste any medicine. If you don't use it, give it to the ones who need it. </p>
+              <h2 class="featurette-heading">Yummazing Offers : <span class="text-muted">Get upto 60% Cashback on your First 5 orders</span></h2>
+              <p class="lead">We are here to serve you yummy food with amazing offers and discounts. On joining you will get upto 60% 
+                cashback on your first 5 orders upto Rs 150. It doesnot stop here, There are daily offers which will be as fascinating 
+                as this one. Start ordering now and give yourself a treat. </p>
             </div>
             <div class="col-md-5">
-              <img class = "featurette-img img-responsie center-block" src="images/together.jfif" alt="">
+              <img class = "featurette-img img-responsie center-block" style="margin-top:40px;" src="images/cashback.jpg" alt="">
             </div>
           </div>
         </div>
@@ -147,7 +117,7 @@
 
   <footer id="footer">
     <p><i class="space far fa-envelope"></i> : sudhirdaga1998@gmail.com</p>
-    <p>© Copyright 2020 FoodShala</p>
+    <p>© Copyright 2021 FoodShala</p>
 
   </footer>
 

@@ -11,6 +11,7 @@ if(isset($_POST['deliver']))
     $cid = $_POST['cid'];
     $status = 1;
     $mysqli->query("UPDATE `checkout` SET status='$status' WHERE cid='$cid' AND order_time='$time'");
+    echo "<script> alert('The Order is Delivered Successfully!');window.location = 'history.php'</script>";
 }
 ?>
 

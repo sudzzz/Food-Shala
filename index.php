@@ -1,3 +1,11 @@
+<?php 
+SESSION_START();
+if(!isset($_SESSION['customer']))
+{
+  $_SESSION['customer']=false;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +44,7 @@
               <a class="nav-link" href="#footer">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="home/customers/customer.php">Order Food</a>
+              <a class="nav-link" href="home/customer/customer.php">Order Food</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" 
@@ -44,7 +52,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="home/restaurants/login.php">Restaurant</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="home/customers/login.php">Customer</a>
+                <a class="dropdown-item" href="home/customer/login.php">Customer</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -53,7 +61,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item btn btn-info" href="home/restaurants/register.php" role="button">Restaurant</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item btn btn-info" href="home/customers/register.php" role="button">Customer</a>
+                <a class="dropdown-item btn btn-info" href="home/customer/register.php" role="button">Customer</a>
               </div>
             </li>
           </ul>

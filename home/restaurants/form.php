@@ -1,12 +1,5 @@
 <?php
-SESSION_START();
-//Get Heroku ClearDB connection information
-$username = 'bd43d5a4d91ec2';
-$password = 'aeb4ff93';
-$database = 'heroku_bd6668f3079e644';
-$hostname = 'eu-cdbr-west-01.cleardb.com';
-
-$mysqli = new mysqli($hostname, $username, $password, $database) or die(mysqli_error($mysqli));
+require_once '../../connection.php';
 //When Submit button is clicked
 $food = '';
 $price = 0;
@@ -20,6 +13,7 @@ if(isset($_POST["submit"]))
   $food  = $_POST['food'];
   $type  = $_POST['type'];
   $price = $_POST['price'];
+  $rid = $_SESSION['id'];
 
   $q = "SELECT * FROM `menu` WHERE email='$email' AND food='$food'";
   $res = mysqli_query($mysqli,$q);
@@ -30,7 +24,7 @@ if(isset($_POST["submit"]))
   }
   else
   {
-    $mysqli->query("INSERT INTO `menu` (restaurant,email,food,price,type) VALUES('$name','$email','$food','$price','$type')") or die($mysqli->error);
+    $mysqli->query("INSERT INTO `menu` (rid,restaurant,email,food,price,type) VALUES('$rid','$name','$email','$food','$price','$type')") or die($mysqli->error);
     echo "<script> alert('Data has been added successfully!!'); window.location = 'restaurant.php'</script>";
   }
  

@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="order.php">
+              <a class="nav-link" href="history.php">
                   <span data-feather="clipboard"></span>
                   View Orders
               </a>

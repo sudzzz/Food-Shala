@@ -1,12 +1,5 @@
 <?php
-SESSION_START();
-//Get Heroku ClearDB connection information
-$username = 'bd43d5a4d91ec2';
-$password = 'aeb4ff93';
-$database = 'heroku_bd6668f3079e644';
-$hostname = 'eu-cdbr-west-01.cleardb.com';
-
-$conn = new mysqli($hostname, $username, $password, $database) or die(mysqli_error($mysqli));
+require_once '../../connection.php';
 
 //When Submit button is clicked
 if(isset($_POST["submit"]))
@@ -15,7 +8,7 @@ if(isset($_POST["submit"]))
   $password = $_POST['password'];
 
   $qe = "SELECT * FROM `customer-register` where email = '$email'";
-  $res = mysqli_query($conn,$qe);
+  $res = mysqli_query($mysqli,$qe);
   $n = mysqli_num_rows($res);
   if(!$n)
   {
@@ -23,10 +16,9 @@ if(isset($_POST["submit"]))
   }
 
   $q = "SELECT * FROM `customer-register` where email = '$email' and password = '$password' ";   //Select the given row with entered email and password
-  $result = mysqli_query($conn,$q);               //Store it
+  $result = mysqli_query($mysqli,$q);               //Store it
   $row = mysqli_fetch_assoc($result);             //this stores the data of the given row in the form of array
   $num = mysqli_num_rows($result);                //Check if there is only 1 row for given email and password i.e. no duplicate data
-
 
   if($num==1)   // If entered email or username exists
   {
@@ -36,6 +28,7 @@ if(isset($_POST["submit"]))
     $_SESSION['phone']    = $row['phone'];
     $_SESSION['email']    = $row['email'];
     $_SESSION['password'] = $row['password'];
+    $_SESSION['customer'] = true;
 
     header('location: customer.php');
   }
@@ -47,7 +40,7 @@ if(isset($_POST["submit"]))
   }
 }
 
-$conn->close();
+$mysqli->close();
 
 ?>
 
@@ -123,7 +116,7 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <title>Login</title>
+    <title>Food Shala Login</title>
   </head>
 
   <body class="text-center">
@@ -142,4 +135,5 @@ body {
 
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Login</button>
   <p>Not a User?<a href="register.php"><b>Register Here</b></a></p>
+  <a href="../../index.php">Home</a>
 </html>

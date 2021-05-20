@@ -1,12 +1,5 @@
 <?php
-SESSION_START();
-//Get Heroku ClearDB connection information
-$username = 'bd43d5a4d91ec2';
-$password = 'aeb4ff93';
-$database = 'heroku_bd6668f3079e644';
-$hostname = 'eu-cdbr-west-01.cleardb.com';
-
-$mysqli = new mysqli($hostname, $username, $password, $database) or die(mysqli_error($mysqli));
+require_once '../../connection.php';
 
 if (isset($_GET['delete']))
 {
@@ -42,7 +35,7 @@ $n = mysqli_num_rows($result);
             <div class="row">
                 <!-- Sidebar menu -->
                 <?php require_once 'includes/sidebar.php'; ?>
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 text-center">
                     <h1 style="margin-top: 10px">Food Menu</h1>
                     <?php if($n>0): ?>
                         <div class="row justify-content-center">
@@ -58,7 +51,13 @@ $n = mysqli_num_rows($result);
                             <?php while ($row = $result->fetch_assoc()): ?>
                             <tr>
                                 <td><?php echo $row['food']; ?></td>
-                                <td><?php echo $row['type']; ?></td>
+                                <td>
+                                    <?php if($row['type']=="Veg"): ?>
+                                        <p style="color:green;">Veg</p>
+                                    <?php else: ?>
+                                        <p style="color:red;">Non-Veg</p>
+                                    <?php endif; ?>
+                                </td>
                                 <td><?php echo $row['price']; ?></td>
                                 <td>
                                 <a href="form.php?edit=<?php echo $row['id']; ?>"
@@ -71,14 +70,6 @@ $n = mysqli_num_rows($result);
                         </table>
                         </div>
                     <?php endif; ?>
-                    <?php
-                      function pre_r($array)
-                      {
-                        echo '<pre>';
-                        print_r($array);
-                        '</pre>';
-                      }
-                    ?>
                 </main>
             </div>
         </div>

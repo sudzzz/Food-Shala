@@ -1,12 +1,5 @@
 <?php 
-SESSION_START();
-//Get Heroku ClearDB connection information
-$username = 'bd43d5a4d91ec2';
-$password = 'aeb4ff93';
-$database = 'heroku_bd6668f3079e644';
-$hostname = 'eu-cdbr-west-01.cleardb.com';
-
-$conn = new mysqli($hostname, $username, $password, $database) or die(mysqli_error($mysqli));
+require_once '../../connection.php';
 
 /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
@@ -29,7 +22,7 @@ if(isset($_POST["submit"]))
   $password2 = $_POST['password2'];
 
   $q = "SELECT * FROM `restaurant-register` where email = '$email' ";   //Check if email exists or not.
-  $result = mysqli_query($conn,$q);
+  $result = mysqli_query($mysqli,$q);
   $num = mysqli_num_rows($result);
 
   if($num==1)   // If entered email or username exists
@@ -44,13 +37,13 @@ if(isset($_POST["submit"]))
   else
   {
     $sql = "INSERT INTO `restaurant-register`(name,address,phone,email,password) VALUES('$name','$address','$phone','$email','$password1')";
-    mysqli_query($conn,$sql);
+    mysqli_query($mysqli,$sql);
 
     echo "<script> alert('You are registered successfully!!'); window.location = 'login.php'</script>";
   }
 }
 
-$conn->close();
+$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html>
@@ -121,7 +114,7 @@ $conn->close();
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-        <title>Register</title>
+        <title>Food Shala Register</title>
     </head>
     <body class="text-center">
       <form action="register.php" class="form-signin" method="post">
@@ -141,4 +134,5 @@ $conn->close();
 
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
     <p>Already a User?<a href="login.php"><b>login Here</b></a></p>
+    <a href="../../index.php">Home</a>
 </html>
